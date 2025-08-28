@@ -23,7 +23,15 @@ export default function HomeScreen() {
           elevation: 2,
           width: '100%',
         }}>
-        <Text>My First Post</Text>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '600',
+            color: '#111827',
+            marginBottom: 8,
+          }}>
+          My First Post
+        </Text>
       </View>
       <View
         style={{
@@ -37,7 +45,15 @@ export default function HomeScreen() {
           elevation: 2,
           width: '100%',
         }}>
-        <Text>My Second Post</Text>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '600',
+            color: '#111827',
+            marginBottom: 8,
+          }}>
+          My Second Post
+        </Text>
         <Image
           source={{
             uri: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93',
