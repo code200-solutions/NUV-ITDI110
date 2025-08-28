@@ -1,5 +1,10 @@
 import { View, Text, Image } from 'react-native';
 
+type PostProps = {
+  text: string;
+  imageUri: string;
+};
+
 export default function Post({ text, imageUri }) {
   return (
     <View
