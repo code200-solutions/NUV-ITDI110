@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 
-export function TextPost() {
+export default function TextPost() {
   return (
     <View
       style={{

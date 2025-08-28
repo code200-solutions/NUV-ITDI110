@@ -1,8 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import { TextPost } from '@/components/TextPost';
+
 import TextImagePost from '@/components/TextImagePost';
 import ImagePost from '@/components/ImagePost';
+import TextPost from '@/components/TextPost';
 
 export default function HomeScreen() {
   return (
