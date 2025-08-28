@@ -19,21 +19,25 @@ export default function Post({ text, imageUri }: PostProps) {
         elevation: 2,
         width: '100%',
       }}>
-      <Text
-        style={{
-          fontSize: 18,
-          fontWeight: '600',
-          color: '#111827',
-          marginBottom: 8,
-        }}>
-        {text}
-      </Text>
-      <Image
-        source={{
-          uri: `${imageUri}`,
-        }}
-        style={{ width: 200, height: 200, borderRadius: 12 }}
-      />
+      {text && (
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '600',
+            color: '#111827',
+            marginBottom: 8,
+          }}>
+          {text}
+        </Text>
+      )}
+      {imageUri && (
+        <Image
+          source={{
+            uri: `${imageUri}`,
+          }}
+          style={{ width: 200, height: 200, borderRadius: 12 }}
+        />
+      )}
     </View>
   );
 }
