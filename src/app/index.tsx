@@ -16,6 +16,7 @@ export default function HomeScreen() {
           style={{ width: 200, height: 200, borderRadius: 12 }}
         />
       </View>
+      <View></View>
     </View>
   );
 }
