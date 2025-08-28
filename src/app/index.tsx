@@ -13,6 +13,7 @@ export default function HomeScreen() {
           source={{
             uri: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93',
           }}
+          style={{ width: 200, height: 200, borderRadius: 12 }}
         />
       </View>
     </View>
