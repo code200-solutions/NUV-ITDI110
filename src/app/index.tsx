@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
+import { TextPost } from '@/components/TextPost';
 
 export default function HomeScreen() {
   return (
@@ -11,28 +12,7 @@ export default function HomeScreen() {
         paddingHorizontal: 40,
         height: '100%',
       }}>
-      <View
-        style={{
-          backgroundColor: '#F3F4F6',
-          marginBottom: 16,
-          padding: 16,
-          borderRadius: 12,
-          shadowColor: '#000',
-          shadowOpacity: 0.05,
-          shadowRadius: 4,
-          elevation: 2,
-          width: '100%',
-        }}>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: '600',
-            color: '#111827',
-            marginBottom: 8,
-          }}>
-          My First Post
-        </Text>
-      </View>
+      <TextPost />
       <View
         style={{
           backgroundColor: '#F3F4F6',
