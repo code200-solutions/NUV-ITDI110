@@ -3,7 +3,14 @@ import { View, Text, Image } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <View>
+    <View
+      style={{
+        alignItems: 'center',
+        backgroundColor: '#E5E7EB',
+        paddingVertical: 20,
+        paddingHorizontal: 40,
+        height: '100%',
+      }}>
       <View>
         <Text>My First Post</Text>
       </View>
