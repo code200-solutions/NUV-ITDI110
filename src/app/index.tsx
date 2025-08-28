@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { TextPost } from '@/components/TextPost';
+import TextImagePost from '@/components/TextImagePost';
 
 export default function HomeScreen() {
   return (
@@ -13,34 +14,7 @@ export default function HomeScreen() {
         height: '100%',
       }}>
       <TextPost />
-      <View
-        style={{
-          backgroundColor: '#F3F4F6',
-          marginBottom: 16,
-          padding: 16,
-          borderRadius: 12,
-          shadowColor: '#000',
-          shadowOpacity: 0.05,
-          shadowRadius: 4,
-          elevation: 2,
-          width: '100%',
-        }}>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: '600',
-            color: '#111827',
-            marginBottom: 8,
-          }}>
-          My Second Post
-        </Text>
-        <Image
-          source={{
-            uri: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93',
-          }}
-          style={{ width: 200, height: 200, borderRadius: 12 }}
-        />
-      </View>
+      <TextImagePost />
       <View
         style={{
           backgroundColor: '#F3F4F6',
