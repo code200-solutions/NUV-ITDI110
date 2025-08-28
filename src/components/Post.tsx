@@ -5,7 +5,7 @@ type PostProps = {
   imageUri: string;
 };
 
-export default function Post({ text, imageUri }) {
+export default function Post({ text, imageUri }: PostProps) {
   return (
     <View
       style={{
