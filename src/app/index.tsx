@@ -7,7 +7,9 @@ export default function HomeScreen() {
       <View>
         <Text>My First Post</Text>
       </View>
-      <View></View>
+      <View>
+        <Text>My Second Post</Text>
+      </View>
     </View>
   );
 }
