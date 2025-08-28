@@ -1,9 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import TextImagePost from '@/components/TextImagePost';
-import ImagePost from '@/components/ImagePost';
-import TextPost from '@/components/TextPost';
+import Post from '@/components/Post';
 
 export default function HomeScreen() {
   return (
@@ -15,9 +13,9 @@ export default function HomeScreen() {
         paddingHorizontal: 40,
         height: '100%',
       }}>
-      <TextPost />
-      <TextImagePost />
-      <ImagePost />
+      <Post />
+      <Post />
+      <Post />
     </View>
   );
 }
