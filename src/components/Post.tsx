@@ -21,11 +21,11 @@ export default function Post({ text, imageUri }) {
           color: '#111827',
           marginBottom: 8,
         }}>
-        My Second Post
+        {text}
       </Text>
       <Image
         source={{
-          uri: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93',
+          uri: `${imageUri}`,
         }}
         style={{ width: 200, height: 200, borderRadius: 12 }}
       />
