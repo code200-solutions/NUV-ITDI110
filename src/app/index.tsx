@@ -1,24 +1,72 @@
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, TextInput, Pressable, ImageSourcePropType } from 'react-native';
 import PostComponent from './PostComponent';
 
+type NewPost = {image: ImageSourcePropType; content: string; author: string};
 const MyImage = require('./../../assets/images/12.jpg')
 
+
 export default function HomeScreen() {
+  let postList: NewPost[] = [];
+  const [newPost, setNewPost] = useState<NewPost[]>([]);
+  const [content, setContent] =useState<string>('');
+  const [author, setAuthor] = useState<string>('');
+
+
+  function onPressFunction(){
+    //console.log('Hello')
+    // postList.push({
+    //   image : MyImage,
+    //   content:'hey there'
+    
+    // });
+    setNewPost((prev) => [...prev, {
+      image: MyImage,
+      content: content,
+      author: author
+
+    }]);
+    //console.log(postList);
+  }
+
   return (
     <View>
           <Text style={{ fontWeight: 'bold', fontSize: 10, margin: 5 }}>POST</Text>
     
-
-    
-    <ScrollView style={{ height: 520 }}>
-      <View style={{ margin: 5, justifyContent: 'space-between' }}>
-        
-
+     <View>
+      <View style={{flexDirection:'row'}}>
+        <Text>Content</Text>
+        <TextInput placeholder='TEXT' value={content} onChangeText={setContent}/>
       </View>
 
+        <View style={{ flexDirection: 'row' }}>
+          <Text>Author</Text>
+          <TextInput placeholder='TEXT' value={author} onChangeText={setAuthor} />
 
-      < View className='flex flex-1'>
+          <TextInput/>
+
+        </View>
+
+        <Pressable onPress={onPressFunction}>
+          <Text>ADD</Text>
+        </Pressable>
+        
+
+     </View>
+    
+     <ScrollView style={{ height: 520, flex: 1 }}>
+        {newPost && newPost.map((post) => (<View key={post.content}><PostComponent Author= {post.author} Date='15 -09-2025'
+          ImageUrl={post.image}
+          Content={post.content}
+
+        /></View>))}
+        {/* {postList && postList.map((post) => (<PostComponent Author='Tim' Date='15 -09-2025'
+          ImageUrl={post.image}
+          Content={post.content}
+
+        />))} */}
+       
+      {/* < View className='flex flex-1'>
 
         <PostComponent Author='Tim' Date='15 -09-2025' Content='This is my first post'
           ImageUrl={MyImage}
@@ -55,9 +103,9 @@ export default function HomeScreen() {
         <PostComponent Author='Finu' Date='15 -09-2025' Content='This is my first post'
         />
 
-      </View>
+      </View> */}
       
-    </ScrollView>
+     </ScrollView>
     </View>
 
 
