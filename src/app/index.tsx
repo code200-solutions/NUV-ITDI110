@@ -1,12 +1,36 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TextInput, Button } from 'react-native';
 import PostComponent from './Postcomponent';
+import { useState } from 'react';
 
 export default function HomeScreen() {
+
   return (
+
+    <View>
+      <View style = {{flexDirection: 'row', borderWidth: 1, padding: 20, margin: 10}}>
+        <View>
+
+        <View style ={{ flexDirection: 'row'}} >
+      <Text style ={{ marginStart: 5}}>context</Text>
+      <TextInput style = {{ marginStart: 3, borderWidth: 1, }}/>
+        </View>
+        
+        
+        <View style ={{flexDirection: 'row', marginTop: 10}}>
+        <Text>Image Url</Text>
+        <TextInput style = {{ marginStart: 3, borderWidth: 1,}} />
+        </View>
+      
+        <Button title='Add'/>
+        </View>
+      </View>
+
+    
     <ScrollView style={{
       height: 650
     }}>
+
     
     <PostComponent author='paul' date='wednesday 17 2025' context='breaking News, the Minister of internal affairs was convicted 
     following some untrusted gester the leads to breaking the article 4 chap.3 sect. 25'/>
@@ -46,5 +70,6 @@ export default function HomeScreen() {
     arrived, the skies remained clear. No locusts. Just the hum of cicadas and the rustle of leaves.' imageUrl={require('./img/pexels-wardmediauk-3347244.jpg')}/>
 
     </ScrollView>
+    </View>
   );
 }
