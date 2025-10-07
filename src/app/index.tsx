@@ -25,22 +25,20 @@ export default function HomeScreen() {
   const [newPost, setNewPost] = useState<PostData[]>([]);
   const [author, setAuthor] =useState<string>('');
   const [content, setContent] = useState<string>('');
+  const [imageUrl,setImage]= useState("");
+
   
 
 
   function onPressFunction(){
     const today = new Date().toLocaleDateString();
     const post = new PostData(author, content, MyImage,today)
-    //console.log('Hello')
-    // postList.push({
-    //   image : MyImage,
-    //   content:'hey there'
-    
-    // });
+
     setNewPost((prev) => [...prev, post])
     
       setAuthor('');
       setContent('');
+      setImage('');
       
 
     }
@@ -52,15 +50,15 @@ export default function HomeScreen() {
   
 
   return (
-    <View style={{backgroundColor:'#f1e8edff'}}>
+    <View style={{backgroundColor:'#f1e8edff', flex:1}}>
           <Text style={{ fontWeight: 'bold', fontSize: 10, margin: 5 }}>POST</Text>
     
      <View>
-      <View style={{flexDirection:'row', margin:5}}>
-        <Text style={{justifyContent:'space-between',borderWidth:1}}>Content</Text>
+      <View style={{flexDirection:'row', margin:5,}}>
+        <Text style={{justifyContent:'space-between',borderWidth:1, paddingRight:5}}>Content</Text>
 
-          <View style={{justifyContent:'space-between', paddingLeft:10}}>
-            <TextInput placeholder='TEXT' value={content} onChangeText={setContent} />
+          <View style={{justifyContent:'space-between', borderWidth:1,paddingLeft:5,marginLeft:10}}>
+            <TextInput placeholder='write something' value={content} onChangeText={setContent} />
           </View>
         
       </View>
@@ -68,31 +66,41 @@ export default function HomeScreen() {
         <View style={{ flexDirection: 'row', margin:5}}>
           <Text style={{justifyContent:'space-between', borderWidth:1,}}>Author</Text>
 
-          <View style={{justifyContent:'space-between',paddingLeft:10 }}>
-            <TextInput placeholder='TEXT' value={author} onChangeText={setAuthor} />
-          </View>
+          <View style={{justifyContent:'space-between',paddingLeft:10,borderWidth:1, marginLeft:22 }}>
           
+            <TextInput placeholder='your name' value={author} onChangeText={setAuthor} />
+          </View>
+    
+        </View>
+        
+        <View style={{ flexDirection: 'row', margin: 5 }}>
+          <Text style={{ justifyContent: 'space-between', borderWidth: 1, }}>Url Image</Text>
 
-          <TextInput/>
+          <View style={{ justifyContent: 'space-between', paddingLeft: 10, borderWidth: 1, marginLeft: 22 }}>
+
+            <TextInput placeholder='Passed your url image' value={imageUrl} onChangeText={setImage} />
+          </View>
 
         </View>
+        
 
         <Pressable 
             onPress={onPressFunction}>
+
               
-              <Text style={{color:'red', borderWidth:1, borderColor:'gray', borderStyle:"dotted", paddingLeft:10
+              <Text style={{color:'red', borderWidth:1, borderColor:'gray', 
+              borderStyle:"solid",alignSelf:'flex-start',
+              fontWeight:'500', 
+              fontSize:12, margin:5, 
 
           }}>ADD</Text>
         </Pressable>
 
-        {/* <Pressable onPress={()=>postToDeleteost(index)}>
-          <Text style={{ color: 'red', borderWidth: 1, borderColor: 'gray', borderStyle: "dotted" }}>DELETE</Text>
-        </Pressable>
-         */}
+       
 
      </View>
     
-     <ScrollView style={{ height: 520, flex: 1 }}>
+     <ScrollView style={{ flex: 1 }}>
         {newPost && newPost.map((post,index) => (<View key={index}>
           <PostComponent 
           Author= {post.author}
@@ -100,52 +108,10 @@ export default function HomeScreen() {
           ImageUrl={post.image}
           Content={post.content}
 
-        /></View>
+        />
+        </View>
         ))}
-        {/* {postList && postList.map((post) => (<PostComponent Author='Tim' Date='15 -09-2025'
-          ImageUrl={post.image}
-          Content={post.content}
-
-        />))} */}
-       
-      {/* < View className='flex flex-1'>
-
-        <PostComponent Author='Tim' Date='15 -09-2025' Content='This is my first post'
-          ImageUrl={MyImage}
-        />
-      
-        <PostComponent Author='Cody' Date='15 -09-2025' Content='This is my first post'
-        />
-
-        <PostComponent Author='Roro' Date='13-09-2024' Content='Sea view'
-          ImageUrl={{ uri: 'https://wallpaperaccess.com/full/4074027.jpg' }}
-        />
-
-        <PostComponent Author='Cody' Date='15 -09-2025' Content='Vanuatu, Port-Vila, Teouma' 
-        />
-
-        <PostComponent Author='Sang' Date='13-09-2024'
-          ImageUrl={{ uri: 'https://www.turtlebaybeachhouse.com/wp-content/uploads/2017/03/dancers-with-masks.jpg' }}
-        />
-
-        <PostComponent Author='Manu' Date='15 -09-2025' Content='This is my first post'
-        />
-
-        <PostComponent Author='Mwulue' Date='13-09-2024' Content='Vanuatu custom'
-          ImageUrl={{ uri: 'https://www.travelonline.com/vanuatu/culture-and-history/warriors-with-kids-31854-ws.jpg' }}
-        />
-
-        <PostComponent Author='KALL' Date='15 -09-2025' Content='This is my first post'
-        />
-
-        <PostComponent Author='Krek' Date='13-09-2024' Content='Sea view'
-          ImageUrl={{ uri: 'https://blog.polynesianpride.co/wp-content/uploads/2024/07/Vanuatu-Culture.jpg' }}
-        />
-
-        <PostComponent Author='Finu' Date='15 -09-2025' Content='This is my first post'
-        />
-
-      </View> */}
+        
       
      </ScrollView>
     </View>
