@@ -1,95 +1,99 @@
-import React from 'react';
-import { ScrollView, Text, View, Image, TextInput, Button } from 'react-native'
-import { useState } from 'react';
-import POST from './postComponent';
-const image1 = require('./assets/P5.jpg');
+import React, { useState } from 'react';
+import { ScrollView, Text, View, TextInput, Button } from 'react-native';
+import Post from '../components/post';
+import { PostData } from '@/entities/PostData';
+
+const image1 = require('../assets/P5.jpg');
+const image2 = require('../assets/P1.jpg');
+const image3 = require('../assets/P2.webp')
 
 export default function HomeScreen() {
+  const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
 
+  const [posts, setPosts] = useState([
+    new PostData(undefined, 'To change directories (cd) into a folder with spaces in its name, you need to escape the spaces by adding a backslash (\) before each space.', 'Tim', '16-09-2025'),
+    new PostData(image2, undefined, 'Ralph', '16-09-2025'),
+    new PostData(undefined, "Noxa i tet!!", 'Juju', '16-09-2025'),
+    new PostData(image3, "Mon Lapin . lol ", 'Ralph', '16-09-2025')
+  ]);
+
+  const handleAddPost = () => {
+    if (!content && !image) return;
+
+    const newPost = new PostData(
+      image || undefined,
+      content || '',
+      '',
+      new Date().toLocaleDateString()
+    );
+    setPosts([...posts, newPost]);
+    setContent('');
+    setImage('');
+    
+  };
+ 
+  
 
   return (
-
-
-    <View className='flex flex-1'>
-      <View style = {{ borderWidth:1 }}>
-
-        <View style={{ flexDirection: 'row' }}>
-          <Text>Content:</Text>
-          <TextInput style={{borderWidth:1
-          }}/>
-
-        </View>
-        <View style={{ flexDirection: 'row' }}>
-          <Text>Image:</Text>
+    <View style={{ flex: 1, padding: 3 }}>
+      <View style={{ borderWidth: 1, padding: 3, marginBottom: 10, }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
+          <Text style={{ marginRight: 10 }}>Content:</Text>
           <TextInput
-          style={{borderWidth:1,
-          }}
+            value={content}
+            onChangeText={setContent}
+            placeholder="Type..."
+            style={{
+              borderWidth: 1,
+              flex: 1,
+              padding: 3,
+              borderRadius: 4
+            }}
           />
         </View>
-        <View>
-          <Button title='ADD' onPress={() => ('Simple Button pressed')} />
+
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
+          <Text style={{ marginRight: 10 }}>Image:</Text>
+          <TextInput
+            value={image}
+            onChangeText={setImage}
+            placeholder="Insert..."
+            style={{
+              borderWidth: 1,
+              flex: 1,
+              padding: 3,
+              borderRadius: 4
+            }}
+          />
         </View>
-
+           <View style = {{
+            height: 50,
+            width: "40%",
+            top: "5%",
+            left: "30%"
+            
+           }}>
+            <Button title="ADD" onPress={handleAddPost} />
+           </View> 
       </View>
-      <ScrollView style={{ height: 375 }}>
-        <View style={{ borderWidth: 1, backgroundColor: 'grey', }}>
-          <View style={{ gap: 10, margin: 5, }}>
-            <Text style={{ color: 'blue' }}>POSTS</Text>
-            <View style={{ borderWidth: 1, gap: 10, marginBottom: 5 }}>
 
-              <POST author="Tim" date='16.09.2025' content='To change directories (cd) into a
-                 folder with spaces in its name, you need to escape the spaces by adding a backslash (\) 
-                 before each space.' />
+          
 
-              <POST author="Ralph" date='16-09-2025' content="" imageUrl={require('./assets/P1.jpg')} />
-
-              <POST author="Juju" date='16-09-2025' content="Noxa i tet!!S" />
-
-              <POST author="Ralph" date='16-09-2025' content="Mon Lapin . lol "
-                imageUrl={require('./assets/P2.webp')} />
-
-              <POST author="Samsung Company" date='16-09-2025' content="Samsung:It formed
-                 several electronics-related divisions, such as Samsung Electronics Devices, Samsung 
-                 Electro-Mechanics, Samsung Corning and Samsung Semiconductor & Telecommunications, 
-                 and opened the facility in Suwon."
-                imageUrl={image1} />
-
-              <POST author="Samson" date='16-09-2025' content="Happy Birthday Ludovic.Ureehh!!!" />
-              <POST author="PSG" date='16-09-2025' content="Le PSG aurait acté une décision forte pour Kylian Mbappé" imageUrl={require('./assets/P7.webp')} />
-              <POST author="Milroy" date='16-09-2025' content="Pikinini Bar is a delightful retreat located
-                 in the bustling city of Port Vila, Vanuatu. This charming bar embodies the laid-back island vibe 
-                 with its colorful decor and welcoming atmosphere, making it an ideal spot for tourists looking to 
-                 experience the local culture. The moment you step inside, you are greeted by the sounds of laughter
-                  and the clinking of glasses, as locals and visitors alike gather to enjoy the friendly ambiance. 
-                  The bar is renowned for its selection of refreshing cocktails and local brews, offering a taste of 
-                  Vanuatu's vibrant drinking culture. Whether you are looking to sip on a classic tropical drink or 
-                  try something unique, Pikinini Bar has something for everyone." imageUrl={require('./assets/p8.webp')} />
-              <POST author="Juju" date='16-09-2025' content="Hello Worl" />
-              <POST author="Ludo" date='16-09-2025' content="OMG, Wooooow" />
-              <POST author="Ralph" date='16-09-2025' content="" imageUrl={require('./assets/P10.png')} />
-              <POST author="Juju" date='16-09-2025' content="" imageUrl={require('./assets/P11.webp')} />
-              <POST author="John" date='16-09-2025' content="" imageUrl={require('./assets/P12.jpg')} />
-              <POST author="Noxa" date='16-09-2025' content="" imageUrl={require('./assets/P13.webp')} />
-              <POST author="Meadow Fresh NZ" date='16-09-2025' content="Our Original fresh milk is a creamy
-                   full bodied family favourite, with protein and calcium for healthy bones, teeth and muscles" imageUrl={require('./assets/P20.webp')} />
-
-
-
-
-
-
-              <POST author="Ralph" date='16-09-2025' imageUrl={require('./assets/P1.jpg')} />
-
-              <POST author="Ralph" date='16-09-2025' content='food' />
-
-
-
-
-            </View>
-          </View>
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ borderWidth: 1, backgroundColor: 'lightgrey', padding: 10 }}>
+          <Text style={{ color: 'blue', marginBottom: 10 }}>POSTS</Text>
+          {posts.map((post, index) => (
+            <Post
+              key={index}
+              author={post.author}
+              date={post.date}
+              content={post.content}
+              imageUrl={post.image}
+            />
+          ))}
         </View>
       </ScrollView>
     </View>
-
   );
 }
