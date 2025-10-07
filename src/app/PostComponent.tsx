@@ -15,7 +15,8 @@ export default function PostComponent({
   imageStyle?: ImageStyle;
 }) {
   return (
-    <View style={{ borderWidth: 2, borderBottomRightRadius: 20, margin: 6 , }}>
+    <View style={{ borderWidth: 2,
+     borderBottomRightRadius: 20, margin: 6 , }}>
       <View
         style={{
           borderWidth: 0,
