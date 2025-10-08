@@ -10,61 +10,73 @@ export default function PostComponent({
   author: string;
   content?: string;
   date: string;
-  image?: string;
+  image?: string
 }) {
   return (
     <View className="flex flex-1">
-      
-        <View
-      style={{
-        borderColor: "#ddd",
-        borderWidth: 1,
-        borderRadius: 8,
-        marginBottom: 15,
-        backgroundColor: "#faebd7", 
-        padding: 12,
-      }}
-    >
-      
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginBottom: 8,
-        }}
-      >
-        <Text style={{ fontWeight: "bold" }}>{author}</Text>
-        <Text style={{ fontWeight: "bold" }}>{date}</Text>
-      </View>
-
-      
-      {content ? (
-        <Text style={{ marginBottom: 10, textAlign: "justify" }}>{content}</Text>
-      ) : null}
-
-
-
-      <View style = {{
-        justifyContent: "center",
-        alignContent: 'center'
+      <View style ={{
+        backgroundColor: "peachpuff"
       }}>
-        {image ? (
-        <Image
-          source={{ uri: image }}
-          style={{
-            width: "50%",
-            height: 200,
-            left: "30%",
-            borderWidth: 1,
-            borderColor: "#000",
-            resizeMode: "cover",
-          }}
-        />
-      ) : null}
-      </View>
-      
-    </View>
+        <View style={{ marginStart: 10 }}>
+          <Text style={{ fontWeight: "bold", fontSize: 20 }}>Post</Text>
+          <Text style={{ textAlign: "center" }}>Live feeds</Text>
+        </View>
 
+        <View
+          style={{
+            borderWidth: 1,
+            flexDirection: "column",
+            margin: 10,
+            borderBottomEndRadius: 10,
+            height: 250,
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              padding: 5,
+            }}
+          >
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 10,
+                borderWidth: 1,
+                padding: 5,
+              }}
+            >
+              {author}
+            </Text>
+            <Text style={{ borderWidth: 1, padding: 5 }}>{date}</Text>
+          </View>
+
+          <View
+            style={{
+              borderWidth: 1,
+              padding: 5,
+              margin: 5,
+              height: 200,
+            }}
+          >
+            {content ? (
+              <Text style={{ textAlign: "justify" }}>{content}</Text>
+            ) : null}
+
+            <View style={{ alignItems: "center", marginTop: 10 }}>
+              {image ? (
+                <Image
+                  source={{ uri: image }}
+                  style={{
+                    height: 150,
+                    width: 200,
+                  }}
+                />
+              ) : null}
+            </View>
+          </View>
+        </View>
+      </View>
     </View>
   );
 }
